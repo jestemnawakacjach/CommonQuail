@@ -7,15 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99870A1E21351F2800A6C719 /* ListProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1021351F2800A6C719 /* ListProviderProtocol.swift */; };
+		99870A1F21351F2800A6C719 /* UITableViewHeaderLoadableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1221351F2800A6C719 /* UITableViewHeaderLoadableProtocol.swift */; };
+		99870A2021351F2800A6C719 /* UITableViewCellLoadableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1321351F2800A6C719 /* UITableViewCellLoadableProtocol.swift */; };
+		99870A2121351F2800A6C719 /* TableViewCellDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1421351F2800A6C719 /* TableViewCellDecorator.swift */; };
+		99870A2221351F2800A6C719 /* TableViewStyleParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1621351F2800A6C719 /* TableViewStyleParameter.swift */; };
+		99870A2321351F2800A6C719 /* TableViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1721351F2800A6C719 /* TableViewStyle.swift */; };
+		99870A2421351F2800A6C719 /* TableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1821351F2800A6C719 /* TableViewManager.swift */; };
+		99870A2521351F2800A6C719 /* TableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1A21351F2800A6C719 /* TableViewItem.swift */; };
+		99870A2621351F2800A6C719 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1B21351F2800A6C719 /* TableViewSection.swift */; };
+		99870A2721351F2800A6C719 /* TableViewItemInteractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1C21351F2800A6C719 /* TableViewItemInteractions.swift */; };
+		99870A2821351F2800A6C719 /* GenericTableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99870A1D21351F2800A6C719 /* GenericTableViewItem.swift */; };
 		CB6B2B8020FF80A6002990DA /* CommonQuail.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6B2B7E20FF80A6002990DA /* CommonQuail.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CB6B2B8720FF80EC002990DA /* TableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6B2B8620FF80EC002990DA /* TableViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		99870A1021351F2800A6C719 /* ListProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProviderProtocol.swift; sourceTree = "<group>"; };
+		99870A1221351F2800A6C719 /* UITableViewHeaderLoadableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewHeaderLoadableProtocol.swift; sourceTree = "<group>"; };
+		99870A1321351F2800A6C719 /* UITableViewCellLoadableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellLoadableProtocol.swift; sourceTree = "<group>"; };
+		99870A1421351F2800A6C719 /* TableViewCellDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellDecorator.swift; sourceTree = "<group>"; };
+		99870A1621351F2800A6C719 /* TableViewStyleParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewStyleParameter.swift; sourceTree = "<group>"; };
+		99870A1721351F2800A6C719 /* TableViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewStyle.swift; sourceTree = "<group>"; };
+		99870A1821351F2800A6C719 /* TableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewManager.swift; sourceTree = "<group>"; };
+		99870A1A21351F2800A6C719 /* TableViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewItem.swift; sourceTree = "<group>"; };
+		99870A1B21351F2800A6C719 /* TableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
+		99870A1C21351F2800A6C719 /* TableViewItemInteractions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewItemInteractions.swift; sourceTree = "<group>"; };
+		99870A1D21351F2800A6C719 /* GenericTableViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTableViewItem.swift; sourceTree = "<group>"; };
 		CB6B2B7B20FF80A6002990DA /* CommonQuail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonQuail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB6B2B7E20FF80A6002990DA /* CommonQuail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonQuail.h; sourceTree = "<group>"; };
 		CB6B2B7F20FF80A6002990DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB6B2B8620FF80EC002990DA /* TableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +49,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99870A0F21351F2800A6C719 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				99870A1021351F2800A6C719 /* ListProviderProtocol.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		99870A1121351F2800A6C719 /* Decorator */ = {
+			isa = PBXGroup;
+			children = (
+				99870A1221351F2800A6C719 /* UITableViewHeaderLoadableProtocol.swift */,
+				99870A1321351F2800A6C719 /* UITableViewCellLoadableProtocol.swift */,
+				99870A1421351F2800A6C719 /* TableViewCellDecorator.swift */,
+			);
+			path = Decorator;
+			sourceTree = "<group>";
+		};
+		99870A1521351F2800A6C719 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				99870A1621351F2800A6C719 /* TableViewStyleParameter.swift */,
+				99870A1721351F2800A6C719 /* TableViewStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		99870A1921351F2800A6C719 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				99870A1A21351F2800A6C719 /* TableViewItem.swift */,
+				99870A1B21351F2800A6C719 /* TableViewSection.swift */,
+				99870A1C21351F2800A6C719 /* TableViewItemInteractions.swift */,
+				99870A1D21351F2800A6C719 /* GenericTableViewItem.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 		CB6B2B7120FF80A6002990DA = {
 			isa = PBXGroup;
 			children = (
@@ -48,7 +106,11 @@
 		CB6B2B7D20FF80A6002990DA /* CommonQuail */ = {
 			isa = PBXGroup;
 			children = (
-				CB6B2B8620FF80EC002990DA /* TableViewManager.swift */,
+				99870A1121351F2800A6C719 /* Decorator */,
+				99870A1921351F2800A6C719 /* Items */,
+				99870A0F21351F2800A6C719 /* List */,
+				99870A1521351F2800A6C719 /* Style */,
+				99870A1821351F2800A6C719 /* TableViewManager.swift */,
 				CB6B2B7E20FF80A6002990DA /* CommonQuail.h */,
 				CB6B2B7F20FF80A6002990DA /* Info.plist */,
 			);
@@ -98,6 +160,7 @@
 				TargetAttributes = {
 					CB6B2B7A20FF80A6002990DA = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -133,7 +196,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB6B2B8720FF80EC002990DA /* TableViewManager.swift in Sources */,
+				99870A2521351F2800A6C719 /* TableViewItem.swift in Sources */,
+				99870A2021351F2800A6C719 /* UITableViewCellLoadableProtocol.swift in Sources */,
+				99870A2121351F2800A6C719 /* TableViewCellDecorator.swift in Sources */,
+				99870A2621351F2800A6C719 /* TableViewSection.swift in Sources */,
+				99870A1F21351F2800A6C719 /* UITableViewHeaderLoadableProtocol.swift in Sources */,
+				99870A2821351F2800A6C719 /* GenericTableViewItem.swift in Sources */,
+				99870A2421351F2800A6C719 /* TableViewManager.swift in Sources */,
+				99870A2321351F2800A6C719 /* TableViewStyle.swift in Sources */,
+				99870A2721351F2800A6C719 /* TableViewItemInteractions.swift in Sources */,
+				99870A1E21351F2800A6C719 /* ListProviderProtocol.swift in Sources */,
+				99870A2221351F2800A6C719 /* TableViewStyleParameter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +336,7 @@
 		CB6B2B8420FF80A6002990DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -280,6 +354,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fivedottwelve.CommonQuail;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -288,6 +363,7 @@
 		CB6B2B8520FF80A6002990DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

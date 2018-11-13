@@ -7,18 +7,6 @@
 //
 import UIKit
 
-public extension UITableViewCellLoadableProtocol {
-
-    func loadData(_ data: TableViewData, tableview: UITableView) {
-        guard let decorator = data as? TableViewCellDecorator else {
-            return
-        }
-
-        decorator.decorate(cell: self)
-    }
-    
-}
-
 public protocol TableViewCellDecorator {
     func decorate(cell: UITableViewCellLoadableProtocol)
 }
@@ -122,6 +110,8 @@ public protocol TableViewManagerDelegate: class {
     func didSelect(_ item: TableViewData)
 
     func pinDelegate(_ item: TableViewData)
+    
+    func tableViewManager(_ sender: TableViewManager, didScroll: UIScrollView)
 
 }
 
@@ -159,10 +149,10 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
         self.tableView.endUpdates()
     }
 
-    public func insertData(items: [TableViewData], firstIndex: Int, section: Int = 0) {
+    public func insertData(items: [TableViewData], firstIndex: Int, section: Int = 0) -> [IndexPath] {
 
         guard items.count > 0 else {
-            return
+            return []
         }
 
         items.forEach { (data) in
@@ -185,6 +175,7 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
         self.tableView.insertRows(at: indexPaths, with: .fade)
         self.tableView.endUpdates()
 
+        return indexPaths
     }
 
     public func add(section: SectionTableData) {
@@ -367,5 +358,9 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
         let data = self.data[indexPath.section].data[indexPath.row]
 
         return data.height()
+    }
+
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.tableViewManager(self, didScroll: scrollView)
     }
 }

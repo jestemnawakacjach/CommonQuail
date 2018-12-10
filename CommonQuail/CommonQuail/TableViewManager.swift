@@ -110,8 +110,10 @@ public protocol TableViewManagerDelegate: class {
     func didSelect(_ item: TableViewData)
 
     func pinDelegate(_ item: TableViewData)
-    
+
     func tableViewManager(_ sender: TableViewManager, didScroll: UIScrollView)
+    func tableViewManager(_ sender: TableViewManager, willDisplayItem item: TableViewData)
+    func tableViewManager(_ sender: TableViewManager, didEndDisplayingItem item: TableViewData)
 
 }
 
@@ -340,6 +342,19 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
         return dataItem.actions()
     }
 
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let sectionData = data[indexPath.section]
+        let dataItem = sectionData.data[indexPath.row]
+        delegate?.tableViewManager(self, willDisplayItem: dataItem)
+    }
+
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let sectionData = data[indexPath.section]
+        if indexPath.row < sectionData.data.count {
+            let dataItem = sectionData.data[indexPath.row]
+            delegate?.tableViewManager(self, didEndDisplayingItem: dataItem)
+        }
+    }
 
 
     @objc public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

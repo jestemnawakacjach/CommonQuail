@@ -252,7 +252,16 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
 
     }
 
-    func registerItem(reuseID: String) {
+    public func registerHeader(reuseID: String) {
+        if let className = NSClassFromString(reuseID) {
+            let bundle = Bundle(for: className)
+            let nibName = reuseID.components(separatedBy: ".")[1]
+            let nib = UINib(nibName: nibName, bundle: bundle)
+            self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: reuseID)
+        }
+    }
+    
+    public func registerItem(reuseID: String) {
         if let className = NSClassFromString(reuseID) {
             let bundle = Bundle(for: className)
             let nibName = reuseID.components(separatedBy: ".")[1]

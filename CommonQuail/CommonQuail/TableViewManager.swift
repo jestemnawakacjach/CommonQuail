@@ -181,6 +181,11 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
     }
 
     public func add(section: SectionTableData) {
+        _add(section: section)
+        self.tableView.reloadData()
+    }
+
+    func _add(section: SectionTableData) {
 
         guard let rId = section.headerReuseId else {
             return
@@ -200,8 +205,16 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
         }
 
         self.data.append(section)
-        self.tableView.reloadData()
+    }
 
+
+    public func add(sections: [SectionTableData]) {
+
+        sections.forEach {
+            _add(section: $0)
+        }
+        
+        self.tableView.reloadData()
     }
 
     public func addData(_ items: [TableViewData]?) {
@@ -260,7 +273,7 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
             self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: reuseID)
         }
     }
-    
+
     public func registerItem(reuseID: String) {
         if let className = NSClassFromString(reuseID) {
             let bundle = Bundle(for: className)

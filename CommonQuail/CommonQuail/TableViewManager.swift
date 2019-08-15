@@ -117,11 +117,17 @@ public protocol TableViewManagerDelegate: class {
 
 }
 
+public protocol TableViewManagerSectionDisplayDelegate: class {
+    func tableViewManager(_ sender: TableViewManager, willDisplaySection section: SectionTableData, forSection section: Int)
+    func tableViewManager(_ sender: TableViewManager, didEndDisplayingSection section: SectionTableData, forSection section: Int)
+}
+
 public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     weak var tableView: UITableView!
 
     public weak var delegate: TableViewManagerDelegate?
+    public weak var sectionDisplayDelegate: TableViewManagerSectionDisplayDelegate?
 
     public private(set) var data = [SectionTableData]()
 
@@ -213,7 +219,7 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
         sections.forEach {
             _add(section: $0)
         }
-        
+
         self.tableView.reloadData()
     }
 
@@ -368,6 +374,20 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
         let sectionData = data[indexPath.section]
         let dataItem = sectionData.data[indexPath.row]
         delegate?.tableViewManager(self, willDisplayItem: dataItem)
+    }
+
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if section < data.count {
+            let sectionData = data[section]
+            sectionDisplayDelegate?.tableViewManager(self, willDisplaySection: sectionData, forSection: section)
+        }
+    }
+
+    public func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
+        if section < data.count {
+            let sectionData = data[section]
+            sectionDisplayDelegate?.tableViewManager(self, didEndDisplayingSection: sectionData, forSection: section)
+        }
     }
 
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {

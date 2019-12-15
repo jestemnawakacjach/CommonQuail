@@ -128,7 +128,7 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
 
     public weak var delegate: TableViewManagerDelegate?
     public weak var sectionDisplayDelegate: TableViewManagerSectionDisplayDelegate?
-
+    public var isSelectionAllowed: Bool = false
     public private(set) var data = [SectionTableData]()
 
     public func reloadItem(item: TableViewData) {
@@ -402,7 +402,9 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
     @objc public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = self.data[indexPath.section].data[indexPath.row]
         self.delegate?.didSelect(data)
-        tableView.deselectRow(at: indexPath, animated: true)
+        if isSelectionAllowed == false {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

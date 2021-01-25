@@ -337,12 +337,18 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
     }
 
     public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        guard data.count > 0 else {
+            return nil
+        }
         let sectionData = data[indexPath.section]
         let dataItem = sectionData.data[indexPath.row]
         return dataItem.actions()
     }
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard data.count > 0 else {
+            return
+        }
         let sectionData = data[indexPath.section]
         let dataItem = sectionData.data[indexPath.row]
         delegate?.tableViewManager(self, willDisplayItem: dataItem)
@@ -363,6 +369,9 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
     }
 
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard data.count > 0 else {
+            return
+        }
         let sectionData = data[indexPath.section]
         if indexPath.row < sectionData.data.count {
             let dataItem = sectionData.data[indexPath.row]

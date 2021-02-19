@@ -70,7 +70,7 @@ open class SectionTableData {
 
 public extension TableViewData {
     func height() -> CGFloat {
-        return UITableView.automaticDimension
+        return UITableViewAutomaticDimension
     }
 
     func canEdit() -> Bool {

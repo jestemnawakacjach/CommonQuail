@@ -96,20 +96,12 @@ public protocol TableViewManagerDelegate: class {
     func pinDelegate(_ item: TableViewData)
 
     func tableViewManager(_ sender: TableViewManager, didScroll: UIScrollView)
-    func tableViewManager(_ sender: TableViewManager, willDisplayItem item: TableViewData)
-    func tableViewManager(_ sender: TableViewManager, didEndDisplayingItem item: TableViewData)
-}
-
-public protocol TableViewManagerSectionDisplayDelegate: class {
-    func tableViewManager(_ sender: TableViewManager, willDisplaySection section: SectionTableData, forSection section: Int)
-    func tableViewManager(_ sender: TableViewManager, didEndDisplayingSection section: SectionTableData, forSection section: Int)
 }
 
 public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     weak var tableView: UITableView!
 
     public weak var delegate: TableViewManagerDelegate?
-    public weak var sectionDisplayDelegate: TableViewManagerSectionDisplayDelegate?
     public var isSelectionAllowed: Bool = false
     public private(set) var data = [SectionTableData]()
 
@@ -343,40 +335,6 @@ public class TableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
         let sectionData = data[indexPath.section]
         let dataItem = sectionData.data[indexPath.row]
         return dataItem.actions()
-    }
-
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard data.count > 0 else {
-            return
-        }
-        let sectionData = data[indexPath.section]
-        let dataItem = sectionData.data[indexPath.row]
-        delegate?.tableViewManager(self, willDisplayItem: dataItem)
-    }
-
-    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if section < data.count {
-            let sectionData = data[section]
-            sectionDisplayDelegate?.tableViewManager(self, willDisplaySection: sectionData, forSection: section)
-        }
-    }
-
-    public func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
-        if section < data.count {
-            let sectionData = data[section]
-            sectionDisplayDelegate?.tableViewManager(self, didEndDisplayingSection: sectionData, forSection: section)
-        }
-    }
-
-    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard data.count > 0 else {
-            return
-        }
-        let sectionData = data[indexPath.section]
-        if indexPath.row < sectionData.data.count {
-            let dataItem = sectionData.data[indexPath.row]
-            delegate?.tableViewManager(self, didEndDisplayingItem: dataItem)
-        }
     }
 
     @objc public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

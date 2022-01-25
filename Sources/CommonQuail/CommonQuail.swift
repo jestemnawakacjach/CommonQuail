@@ -31,7 +31,7 @@ open class GenericTableViewDataItem<T>: TableViewData {
     }
 }
 
-public protocol ListProviderDelegate: class {
+public protocol ListProviderDelegate: AnyObject {
     func didStartFetching(_ data: [TableViewData]?)
 
     func didFinishFetching(_ data: [TableViewData]?)
@@ -39,7 +39,7 @@ public protocol ListProviderDelegate: class {
     func didFinishFetchingWithError(_ error: NSError?)
 }
 
-public protocol ListProviderProtocol: class {
+public protocol ListProviderProtocol: AnyObject {
     var delegate: ListProviderDelegate? { get set }
 
     func requestData()
@@ -70,7 +70,7 @@ open class SectionTableData {
 
 public extension TableViewData {
     func height() -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 
     func canEdit() -> Bool {
@@ -90,7 +90,7 @@ public protocol UITableViewHeaderLoadableProtocol {
     func loadData(_ data: SectionTableData, tableview: UITableView)
 }
 
-public protocol TableViewManagerDelegate: class {
+public protocol TableViewManagerDelegate: AnyObject {
     func didSelect(_ item: TableViewData)
 
     func pinDelegate(_ item: TableViewData)
